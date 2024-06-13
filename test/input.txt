@@ -1,0 +1,33 @@
+LEFT_IMAGE_FILE			=  ./cam0/pg_color_0000.bmp
+RIGHT_IMAGE_FILE		= ./cam1/pg_color_0000.bmp
+NUM_FRAMES				= 1
+RECTIFIED				= F
+
+OUTPUT_FORMAT			= 1    # 0: pcd, 1: ply
+
+USE_RIGHT_DISPARITY		= F
+MAX_DISPARITY			= 1024
+MIN_DISPARITY			= 300
+DISP_SMOOTHNESS			= 0.12
+DISP_REFINE_ITERATION	= 10
+DISP_SEARCH_RANGE       = 0.07  # dz < search_range
+
+PYRAMID_DEPTH			= 5
+TERMINATE_LEVEL			= 0      # 0: highest, depth-1: lowest
+HIERARCH_BLOCK_MATCHING = T
+MAX_DEPTH_CHANGE_RATIO  = 0.04	 # dz/z > MAX_DEPTH_CHANGE_RATIO => Use the previous disparity
+MAX_CURV_CHANGE_RATIO	= 1.2	  # default : 1.2, A larger value allows a bigger curvature change between layers
+
+INTEREST_REGION_X		= 1000 2400
+INTEREST_REGION_Y		= 150 1900
+
+AUTO_FACE_DETECT		= 1
+FACE_DETECT_XML			= haarcascade_frontalface_alt.xml
+
+INTRINSIC_PARAMETER 	= left_K.txt 
+						  right_K.txt
+CAMERA_POSE				= left_cam_pose.txt 
+						  right_cam_pose.txt
+						  
+CHECK_RECONST_CORNERS   = corner_pts_0.txt
+CHECK_CORNER_ON_IMAGE   = left_pts_0.txt right_pts_0.txt
